@@ -1,5 +1,5 @@
 module CurrentUserConcern
-  extend ActiveSUpport::Concern
+  extend ActiveSupport::Concern
 
   included do
     before_action :set_current_user
