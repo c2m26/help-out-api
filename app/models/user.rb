@@ -1,5 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
+    has_one_attached :idFile
+    # validates_attachment :idFile, presence: true
 
     validates :firstName,:lastName,:password, presence: true
     validates :email, presence: true, uniqueness: true
