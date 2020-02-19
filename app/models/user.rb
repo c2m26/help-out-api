@@ -1,6 +1,11 @@
 class User < ApplicationRecord
     has_secure_password
     has_one_attached :idFile
+
+    has_many :needs
+    has_many :helpers
+    has_many :fulfillments, through: :helpers 
+
     # validates_attachment :idFile, presence: true
 
     validates :firstName,:lastName,:password, presence: true

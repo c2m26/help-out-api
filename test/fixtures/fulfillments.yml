@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  helperID: 1
+  needID: 1
+
+two:
+  helperID: 1
+  needID: 1

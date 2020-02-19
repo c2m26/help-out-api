@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_161732) do
+ActiveRecord::Schema.define(version: 2020_02_19_144555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,15 +36,23 @@ ActiveRecord::Schema.define(version: 2020_01_30_161732) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "need_requests", force: :cascade do |t|
-    t.integer "userID"
-    t.string "title"
-    t.string "description"
-    t.string "type"
-    t.float "lat"
-    t.float "lng"
-    t.string "formattedAddress"
-    t.string "status"
+  create_table "conversations", force: :cascade do |t|
+    t.integer "fulfillmentID"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "fulfillments", force: :cascade do |t|
+    t.integer "helperID"
+    t.integer "needID"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "conversationID"
+    t.integer "senderID"
+    t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
