@@ -2,6 +2,7 @@ class Api::V1::FulfillmentsController < ApplicationController
 
   def create
     fulfillment = Fulfillment.new(fulfillment_params)
+    
     if fulfillment.save
       render json: {
         data: fulfillment,
@@ -25,7 +26,7 @@ class Api::V1::FulfillmentsController < ApplicationController
   private
 
   def fulfillment_params
-          params.require(:fulfillment).permit(:needID, :helperID)
+          params.permit(:needID, :helperID)
   end
 
 end

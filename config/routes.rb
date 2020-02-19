@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       get :logged_in, to: "sessions#logged_in"
       resources :needs, only: [:create, :index]
       resources :fulfillments, only: [:create, :index]
+      resources :conversations, only: [:create, :index, :show]
+      resources :messages, only: [:create, :index, :show]
+      
     end
   end
   
