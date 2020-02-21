@@ -18,9 +18,20 @@ class Api::V1::FulfillmentsController < ApplicationController
   end
 
   def index
-    fulfillment = Fulfillment.all
+    fulfillments = Fulfillment.all
     render json: fulfillments
     
+  end
+
+  def get_foreignKeys
+    fulfillment = Fulfillment.find(params[:id])
+    helper = fulfillment.helperID
+    need = fulfillment.needID
+    render json: {
+      helperID: helper,
+      needID: need
+    }
+      
   end
 
   private

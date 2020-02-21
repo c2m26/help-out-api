@@ -19,7 +19,12 @@ class Api::V1::NeedsController < ApplicationController
     def index
       needs = Need.all
       render json: needs
-      
+    end
+
+    def get_creatorID
+      need = Need.find(params[:id])
+      user = need.userID
+      render json: {creatorID: user}
     end
 
     private

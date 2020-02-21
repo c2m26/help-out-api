@@ -21,7 +21,7 @@ class Api::V1::MessagesController < ApplicationController
 
   def index
     
-    messages = Message.where(conversationID: params[:conversationID])
+    messages = Message.where(conversationID: params[:id])
     
     render json: {
       data: messages
