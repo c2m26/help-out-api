@@ -19,25 +19,33 @@ class Api::V1::FulfillmentsController < ApplicationController
 
   def index
     fulfillments = Fulfillment.all
-    render json: fulfillments
     
+    render json: fulfillments
   end
 
   def get_foreignKeys
     fulfillment = Fulfillment.find(params[:id])
     helper = fulfillment.helperID
     need = fulfillment.needID
+    
     render json: {
       helperID: helper,
       needID: need
     }
-      
+  end
+
+  def get_userFulfillments
+    fulfillments = Fulfillment.where(helperID: params[:id])
+  
+    render json: {
+      data: fulfillments
+    }
   end
 
   private
 
   def fulfillment_params
-          params.permit(:needID, :helperID)
+    params.permit(:needID, :helperID)
   end
 
 end

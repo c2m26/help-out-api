@@ -18,6 +18,11 @@ class Api::V1::ConversationsController < ApplicationController
     end
   end
 
+  def getID
+    conversation = Conversation.where(fulfillmentID: params[:id])
+    render json: conversation[0]
+  end
+
   def index
     conversations = Conversation.all
     render json: conversations

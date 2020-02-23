@@ -10,13 +10,20 @@ Rails.application.routes.draw do
       resources :needs, only: [:create, :index]
       namespace :needs do
         get :get_creatorID
+        get :get_userNeeds
       end
 
       resources :fulfillments, only: [:create, :index]
       namespace :fulfillments do
         get :get_foreignKeys
+        get :get_userFulfillments
       end
-      resources :conversations, only: [:create, :index, :show]
+      
+      resources :conversations, only: [:create, :index]
+      namespace :conversations do
+        get :getID
+      end
+
       resources :messages, only: [:create, :index, :show]
       
     end

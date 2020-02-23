@@ -27,6 +27,15 @@ class Api::V1::NeedsController < ApplicationController
       render json: {creatorID: user}
     end
 
+    def get_userNeeds
+      userNeeds = Need.where(userID: params[:id])
+    
+      render json: {
+        data: userNeeds
+      }
+
+    end
+
     private
 
     def need_params
