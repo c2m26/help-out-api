@@ -19,14 +19,20 @@ class Api::V1::MessagesController < ApplicationController
   end
 
 
-  def index
+  def get_Messages
     
     messages = Message.where(conversationID: params[:id])
     
     render json: {
       data: messages
     }
+  end
 
+  def index
+    
+    messages = Message.all
+    
+    render json: messages
   end
 
   private

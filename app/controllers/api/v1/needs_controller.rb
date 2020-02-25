@@ -33,7 +33,12 @@ class Api::V1::NeedsController < ApplicationController
       render json: {
         data: userNeeds
       }
+    end
 
+    def get_openNeeds
+      openNeeds = Need.where(status: "open")
+    
+      render json: openNeeds
     end
 
     private

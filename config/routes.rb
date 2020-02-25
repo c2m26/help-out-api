@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       namespace :needs do
         get :get_creatorID
         get :get_userNeeds
+        get :get_openNeeds
       end
 
       resources :fulfillments, only: [:create, :index]
@@ -24,7 +25,10 @@ Rails.application.routes.draw do
         get :getID
       end
 
-      resources :messages, only: [:create, :index, :show]
+      resources :messages, only: [:create, :index]
+      namespace :messages do
+        get :get_Messages
+      end
       
     end
   end
