@@ -16,29 +16,39 @@ class Api::V1::NeedsController < ApplicationController
       end
     end
 
-    def index
-      needs = Need.all
-      render json: needs
+    def update_status
+      need = Need.find(params[:id])
+      need.status = params[:status]
+      need.save
+      render json: need
     end
 
     def get_creatorID
       need = Need.find(params[:id])
       user = need.userID
-      render json: {creatorID: user}
+      render json: user
     end
 
     def get_userNeeds
       userNeeds = Need.where(userID: params[:id])
     
-      render json: {
-        data: userNeeds
-      }
+      render json: userNeeds
     end
 
     def get_openNeeds
       openNeeds = Need.where(status: "open")
     
       render json: openNeeds
+    end
+
+    def get_Need
+      need = Need.find(params[:id])
+      render json: need
+    end
+
+    def index
+      needs = Need.all
+      render json: needs
     end
 
     private

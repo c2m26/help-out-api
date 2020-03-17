@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :sessions, only: [:create]
       resources :registrations, only: [:create]
+      resources :users, only: [:show]
       delete :logout, to: "sessions#logout"
       get :logged_in, to: "sessions#logged_in"
       
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
         get :get_creatorID
         get :get_userNeeds
         get :get_openNeeds
+        get :get_Need
+        patch :update_status
       end
 
       resources :fulfillments, only: [:create, :index]
