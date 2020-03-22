@@ -23,9 +23,7 @@ class Api::V1::MessagesController < ApplicationController
     
     messages = Message.where(conversationID: params[:id])
     
-    render json: {
-      data: messages
-    }
+    render json: messages
   end
 
   def index

@@ -20,7 +20,7 @@ class Api::V1::ConversationsController < ApplicationController
 
   def getID
     conversation = Conversation.where(fulfillmentID: params[:id])
-    render json: conversation[0]
+    render json: conversation[0].id
   end
 
   def index
