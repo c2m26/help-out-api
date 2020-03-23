@@ -23,7 +23,7 @@ FactoryBot.define do
   # end
   
   factory :user do
-    id {Faker::Number.digit}
+    id {Faker::Number.number}
     firstName {Faker::Name.first_name}
     lastName {Faker::Name.last_name}
     email {Faker::Internet.email }
@@ -32,7 +32,7 @@ FactoryBot.define do
   end
 
   factory :need do
-    id {Faker::Number.unique.digit}
+    id {Faker::Number.unique.number}
     userID {Faker::Number.digit}
     title {Faker::Lorem.sentence(word_count: 3)}
     description {Faker::Lorem.characters(number: 200)}
@@ -42,4 +42,5 @@ FactoryBot.define do
     formattedAddress {Faker::Address.full_address}
     status {"open"}
   end
+
 end
