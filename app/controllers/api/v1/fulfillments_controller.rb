@@ -42,12 +42,6 @@ class Api::V1::FulfillmentsController < ApplicationController
     }
   end
 
-  def index
-    fulfillments = Fulfillment.all
-  
-    render json: fulfillments
-  end
-
   private
 
   def fulfillment_params

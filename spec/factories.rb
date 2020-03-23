@@ -43,4 +43,10 @@ FactoryBot.define do
     status {"open"}
   end
 
+  factory :fulfillment do
+    id {Faker::Number.unique.number}
+    helperID {Faker::Number.number}
+    needID {Faker::Number.number}
+  end
+
 end
