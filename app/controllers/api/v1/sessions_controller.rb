@@ -18,6 +18,20 @@ class Api::V1::SessionsController < ApplicationController
     end
   end
 
+  # def create
+
+  #   if user = User.authenticate(params[:email], params[:password])
+  #     # Save the user ID in the session so it can be used in
+  #     # subsequent requests
+  #     session[:current_user_id] = user.id
+  #     render json: {
+  #       status: :created,
+  #       logged_in: true,
+  #       user: user
+  #     }
+  #   end
+  # end
+
   def logged_in
     if @current_user
       render json: {
@@ -32,8 +46,10 @@ class Api::V1::SessionsController < ApplicationController
   end
 
   def logout
-    reset_session
-    render json: { status: 200, logget_out: true }
+    # reset_session
+    session[:user_id] = nil
+    @current_user = nil
+    render json: { status: 200, logged_out: true, session: session[:user_id], user: @current_user }
   end
     
 end

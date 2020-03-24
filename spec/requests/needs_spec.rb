@@ -80,7 +80,6 @@ RSpec.describe 'Test Needs Endpoints:', :type => :request do
     it 'returns 200 status and updated Need' do
       need = create(:need, id: "1", userID: "1")
       headers = { }
-      # params = {:need => { "userID" => need.userID, "title" => need.title, "description" => need.description, "needType" => need.needType, "lat" => need.lat, "lng" => need.lng, "formattedAddress" => need.formattedAddress, "status" => need.status } }
       params = { "status" => "closed"}
       patch "/api/v1/needs/update_status?id=#{need.id}", :params => params , :headers => {}
 

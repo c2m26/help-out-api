@@ -2,28 +2,8 @@ require 'faker'
 
 FactoryBot.define do
 
-  # factory :user do
-  #   id {"1"}
-  #   firstName {"Joe"}
-  #   lastName {"Doe"}
-  #   email {"jdoe@mail.com"}
-  #   password {"asd"}
-  # end
-
-  # factory :need do
-  #   id {"1"}
-  #   userID {"1"}
-  #   title {"Title"}
-  #   description {"Description"}
-  #   needType {"material"}
-  #   lat {"50"}
-  #   lng {"10"}
-  #   formattedAddress {"Address"}
-  #   status {"open"}
-  # end
-  
   factory :user do
-    id {Faker::Number.number}
+    id {Faker::Number.number(digits: 2)}
     firstName {Faker::Name.first_name}
     lastName {Faker::Name.last_name}
     email {Faker::Internet.email }
@@ -32,7 +12,7 @@ FactoryBot.define do
   end
 
   factory :need do
-    id {Faker::Number.unique.number}
+    id {Faker::Number.unique.number(digits: 3)}
     userID {Faker::Number.digit}
     title {Faker::Lorem.sentence(word_count: 3)}
     description {Faker::Lorem.characters(number: 200)}
@@ -44,9 +24,21 @@ FactoryBot.define do
   end
 
   factory :fulfillment do
-    id {Faker::Number.unique.number}
+    id {Faker::Number.unique.number(digits: 2)}
     helperID {Faker::Number.number}
     needID {Faker::Number.number}
+  end
+
+  factory :conversation do
+    id {Faker::Number.unique.number(digits: 2)}
+    fulfillmentID {Faker::Number.number(digits: 2)}
+  end
+
+  factory :message do
+    id {Faker::Number.unique.number(digits: 2)}
+    conversationID {Faker::Number.number(digits: 2)}
+    senderID {Faker::Number.number(digits: 2)}
+    content {Faker::Lorem.characters(number: 100)}
   end
 
 end
