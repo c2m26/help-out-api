@@ -11,7 +11,15 @@
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
 # it.
-#
+
+# Provides RSpec-compatible matchers for testing the validators.
+require 'active_storage_validations/matchers'
+
+RSpec.configure do |config|
+  config.include ActiveStorageValidations::Matchers
+end
+
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

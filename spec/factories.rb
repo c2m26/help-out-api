@@ -1,14 +1,14 @@
 require 'faker'
 
 FactoryBot.define do
-
+  
   factory :user do
     id {Faker::Number.number(digits: 2)}
     firstName {Faker::Name.first_name}
     lastName {Faker::Name.last_name}
     email {Faker::Internet.email }
     password {Faker::Internet.password}
-    
+    idFile {Rack::Test::UploadedFile.new('spec/fixtures/files/avatar.png', 'image/png') }
   end
 
   factory :need do

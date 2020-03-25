@@ -6,7 +6,8 @@ class Api::V1::RegistrationsController < ApplicationController
       session[:user_id] = user.id
       render json: {
         status: :created,
-        user: user
+        user: user,
+        # idFile: user.idFile
       }
     else
       render json: { status: 500 }

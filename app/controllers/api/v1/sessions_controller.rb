@@ -51,5 +51,16 @@ class Api::V1::SessionsController < ApplicationController
     @current_user = nil
     render json: { status: 200, logged_out: true, session: session[:user_id], user: @current_user }
   end
+
+  # from rails docs
+
+  # # "Delete" a login, aka "log the user out"
+  # def destroy
+  #   # Remove the user id from the session
+  #   session.delete(:current_user_id)
+  #   # Clear the memoized current user
+  #   @_current_user = nil
+  #   redirect_to root_url
+  # end
     
 end
