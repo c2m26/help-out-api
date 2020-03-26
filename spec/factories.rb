@@ -14,7 +14,7 @@ FactoryBot.define do
   factory :need do
     id {Faker::Number.unique.number(digits: 3)}
     userID {Faker::Number.number(digits: 3)}
-    title {Faker::Lorem.sentence(word_count: 3)}
+    title {Faker::Lorem.characters(number: 50)}
     description {Faker::Lorem.characters(number: 200)}
     needType {"material"}
     lat {Faker::Number.decimal(l_digits: 2)}
