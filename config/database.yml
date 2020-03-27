@@ -83,3 +83,7 @@ production:
   database: help_out_api_production
   username: help_out_api
   password: <%= ENV['HELP_OUT_API_DATABASE_PASSWORD'] %>
+
+  production:
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
