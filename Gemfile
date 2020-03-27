@@ -36,6 +36,9 @@ gem 'activestorage-validator'
 
 gem 'active_storage_validations', '~> 0.8.8'
 
+# Google Cloud Storage
+gem "google-cloud-storage"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
